@@ -7,10 +7,10 @@ import pickle
 flask_app = Flask(__name__)
 
 # Load the scaler and model
-review_model = pickle.load(open("D:\ASU\Trainings & Interns\مبادرة رواد مصر\Microsoft Data Engineer\Final Project\Req4\model_review.pkl", "rb"))
-churn_model = pickle.load(open("D:\ASU\Trainings & Interns\مبادرة رواد مصر\Microsoft Data Engineer\Final Project\Req4\model_churn.pkl", "rb"))
+review_model = pickle.load(open("model_review.pkl", "rb"))
+churn_model = pickle.load(open("model_churn.pkl", "rb"))
 
-dataset = pd.read_csv("D:\ASU\Trainings & Interns\مبادرة رواد مصر\Microsoft Data Engineer\Final Project\Req4\dataset_features_v1-5.csv")
+dataset = pd.read_csv("dataset_features_v1-5.csv")
 
 @flask_app.route("/")
 def Home():
