@@ -86,9 +86,9 @@ We use this dataset to build our SQL schema, analyze customer behavior, and trai
 
 - **Database**: Microsoft SQL Server, SQL Server Management Studio, SQL Data Warehouse
 - **Python**: Pandas, SQLAlchemy, Scikit-learn, Matplotlib
-- **Azure**: Azure Data Studio, Azure Machine Learning, Azure services for model deployment
+- **Azure**: Azure Data Warehouse (Synapse Analytics)
 - **MLOps**: MLflow for experiment tracking and model management
-- **Web Framework**: Flask, Streamlit (for model deployment)
+- **Web Framework**: Flask (for model deployment)
 
 ## Deliverables
 
