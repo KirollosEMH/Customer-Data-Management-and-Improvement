@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Your custom CSS styles -->
+  <style>
+    body {
+      font-family: 'Arimo', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .login {
+      background-color: #ffffff;
+      padding: 20px;
+      margin: 50px auto;
+      width: 80%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      text-align: center;
+      color: #343a40;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="login">
+      <h1>Customer Churn & Review Score Prediction</h1>
+
+      <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}" method="post">
+        <!-- Input fields with Bootstrap styling -->
+        <div class="form-group">
+          <input type="text" class="form-control" name="order_id" placeholder="Order ID" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="customer_id" placeholder="Customer ID" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="order_item_id" placeholder="Order Item ID" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="product_id" placeholder="Product ID" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="seller_id" placeholder="Seller ID" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="customer_unique_id" placeholder="Customer Unique ID" required="required" />
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="review_id" placeholder="Review ID" required="required" />
+        </div>
+
+        <div class="form-group">
+          <label for="prediction_type">Select Prediction Type:</label><br>
+          <input type="radio" id="churn" name="prediction_type" value="churn" required>
+          <label for="churn">Churn</label><br>
+          <input type="radio" id="review" name="prediction_type" value="review" required>
+          <label for="review">Review</label>
+        </div>
+      
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+
+      <br>
+      <br>
+      {{ prediction_text }}
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
